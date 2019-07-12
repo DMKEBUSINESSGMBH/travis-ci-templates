@@ -3,6 +3,13 @@ Travis CI Template
 
 To use this template copy it and change the parts as you need it.
 
+requirements:
+```
+    "require-dev": {
+        "nimut/testing-framework": "^4.0"
+    },
+```
+
 php versions that are used:
 ```
 php:
