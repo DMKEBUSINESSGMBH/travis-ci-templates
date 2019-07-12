@@ -3,13 +3,36 @@ Travis CI Template
 
 To use this template copy it and change the parts as you need it.
 
-requirements:
+
+requirements
+--------
+You have to change the path to match your extension mktools is just the example
 ```
     "require-dev": {
         "nimut/testing-framework": "^4.0"
     },
+    "config": {
+        "vendor-dir": ".Build/vendor",
+        "bin-dir": ".Build/bin",
+        "preferred-install": {
+            "typo3/cms": "source"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "mkdir -p .Build/Web/typo3conf/ext/",
+            "[ -L .Build/Web/typo3conf/ext/mktools ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/mktools"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": ".Build/Web"
+        }
+    }
 ```
-
+settings
+--------
 php versions that are used:
 ```
 php:
