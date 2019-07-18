@@ -1,11 +1,11 @@
-Travis CI Template
-========
+# Travis CI Template
 
-To use this template copy it and change the parts as you need it.
+To use this template you have to copy the .travis.yml and the phpunit.xml.dist into your project. Also you have to add the requirements down below.
+In the .travis.yml you can change the php and typo3 version you want to test. 
+In the phpunit.xml.dist you can change the test and src folder to match to your extension.
 
+## requirements
 
-requirements
---------
 You have to change the path to match your extension mktools is just the example
 ```
     "require-dev": {
@@ -31,8 +31,10 @@ You have to change the path to match your extension mktools is just the example
         }
     }
 ```
-settings
---------
+## settings
+
+### .travis.yml
+
 php versions that are used:
 ```
 php:
@@ -59,7 +61,21 @@ matrix:
       env: TYPO3_VERSION="^9.5.0"
 ```
 
+### phpunit.xml.dist.yml
+
 path to your test folder:
 ```
-.Build/bin/phpunit -c .Build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Classes/
+    <testsuites>
+        <testsuite name="MK Postman Unit Tests">
+            <directory>Tests/Unit/</directory>
+        </testsuite>
+    </testsuites>
+```
+path to your src folder:
+```
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">Classes</directory>
+        </whitelist>
+    </filter>
 ```
