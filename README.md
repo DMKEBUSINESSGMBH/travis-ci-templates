@@ -79,3 +79,20 @@ path to your src folder:
         </whitelist>
     </filter>
 ```
+This define your Classes that are used to generate the code coverage. In some old projects you might have a structure like this:
+```
+<whitelist processUncoveredFilesFromWhitelist="true">
+    <directory suffix=".php">./actions</directory>
+    <directory suffix=".php">./controllers</directory>
+    <directory suffix=".php">./exceptions</directory>
+    <directory suffix=".php">./hooks</directory>
+    <directory suffix=".php">./models</directory>
+    <directory suffix=".php">./search</directory>
+    <directory suffix=".php">./util</directory>
+    <directory suffix=".php">./Classes</directory>
+    <directory suffix=".php">./marker</directory>
+    <directory suffix=".php">./view</directory>
+    <directory suffix=".php">./interface</directory>
+    <directory suffix=".php">./indexer</directory>
+</whitelist>
+```
